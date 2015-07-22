@@ -1,0 +1,1 @@
+//= require ./app/banner_box_settings/banner_box_setting

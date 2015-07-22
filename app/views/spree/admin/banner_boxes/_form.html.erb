@@ -1,0 +1,63 @@
+<div data-hook="admin_banner_box_form_fields">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.field_container :category do %>
+          <%= f.label :category, raw(Spree.t(:category) + content_tag(:span, ' *', :class => 'required')) %>
+          <%= f.text_field :category, :class => 'form-control title' %>
+          <%= f.error_message_on :category %>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.field_container :url do %>
+          <%= f.label :url, Spree.t(:url) %>
+          <%= f.text_field :url, :class => 'form-control title' %>
+          <%= f.error_message_on :url %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.field_container :alt_text do %>
+          <%= f.label :alt_text, Spree.t(:alt_text) %>
+          <%= f.text_field :alt_text, :class => 'form-control' %>
+          <%= f.error_message_on :alt_text %>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <% unless f.object.new_record? %>
+          <div data-hook="thumbnail" class="col-sm-3">
+            <%= f.label Spree.t(:thumbnail) %><br>
+            <%= link_to image_tag(@banner_box.attachment.url(:mini)), @banner_box.attachment.url(:small) %>
+          </div>
+      <% end %>
+      <%= f.field_container :attachment do %>
+          <%= f.label :attachment, Spree.t(:attachment) %><br />
+          <%= f.file_field :attachment %>
+          <%= f.error_message_on :attachment %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.field_container :begin_display do %>
+          <%= f.label :begin_display, Spree.t(:begin_display) %><br />
+          <%= f.text_field :begin_display, class: 'datepicker form-control' %>
+          <%= f.error_message_on :begin_display %>
+      <% end %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.field_container :end_display do %>
+          <%= f.label :end_display, Spree.t(:end_display) %><br />
+          <%= f.text_field :end_display, class: 'datepicker form-control' %>
+          <%= f.error_message_on :end_display %>
+      <% end %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.field_container :enabled do %>
+          <%= f.label :enabled, Spree.t(:enabled) %><br />
+          <%= f.check_box :enabled %>
+          <%= f.error_message_on :enabled %>
+      <% end %>
+    </div>
+  </div>
+</div>

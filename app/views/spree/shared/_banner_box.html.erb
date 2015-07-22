@@ -1,0 +1,31 @@
+<div id="<%= params[:carousel_id] %>" class="carousel slide <%= params[:class] %>" data-ride="carousel">
+  <% if params[:indicators_carousel] %>
+    <ol class="carousel-indicators">
+      <% @banners.each_with_index do |banner, index| %>
+        <li data-target="#<%= params[:carousel_id] %>" data-slide-to="<%= index %>"
+            class="<%= 'active' if banner == @banners.first %>"></li>
+      <% end %>
+    </ol>
+  <% end %>
+
+  <div class="carousel-inner" role="listbox">
+    <% @banners.each do |banner| %>
+      <div class="item <%= 'active' if banner == @banners.first %>">
+        <%= link_to (banner.url.blank? ? 'javascript: void(0)' : banner.url) do %>
+        <%= image_tag banner.attachment.url(params[:style]), alt: banner.alt_text, class: params[:image_class] %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if params[:buttons_carousel] %>
+    <a class="left <%= params[:buttons_class] %>" href="#<%= params[:carousel_id] %>" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only"><%= Spree.t(:previous) %></span>
+    </a>
+    <a class="right <%= params[:buttons_class] %>" href="#<%= params[:carousel_id] %>" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only"><%= Spree.t(:next) %></span>
+    </a>
+  <% end %>
+</div>

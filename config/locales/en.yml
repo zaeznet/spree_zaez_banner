@@ -1,0 +1,48 @@
+en:
+  banners: Banners
+  images_only: "only available is JPG, JPEG, PNG o GIF"
+  banner_settings_updated: "Banner Settings successfully updated."
+  banner_boxes: Banners
+  banner_box: Banner
+  notice_messages:
+    banner_box_cloned: "Banner has been cloned"
+    banner_box_not_cloned: "Banner could not be cloned"
+  activerecord:
+    models:
+      banner_box:
+        one: Banner
+        other: Banners
+    attributes:
+      banner_box:
+        category: Category
+        updated_at: Updated At
+        created_at: Created At
+        enabled: Enabled?
+        begin_display: Begin Display
+        end_display: End Display
+  destroy: Destroy
+  confirm: Confirm
+  spree:
+    banners: Banners
+    banner_box_settings: Banner Settings
+    general_settings: General Settings
+    banner_styles: Paperclip Styles Banner
+    banner_path: Banner Path
+    banner_default_url: Banner Default URL
+    banner_url: Banner URL
+    banner_default_style: Banner Default Style
+    add_new_banner_style: Add New Banner Style
+    new_banner_style_name: Style Name
+    new_banner_style_value: Value
+    banner_settings_updated: Banner Settings successfully updated
+    listing_banner_boxes: Listing Banners
+    new_banner_box: New Banner Box
+    attachment: Attachment
+    enabled: Enabled
+    show_only_enabled: Show Only Enabled
+    url: URL
+    begin_display: Begin Display
+    end_display: End Display
+    previous: Previous
+    next: Next
+    banner_box_settings_warning: You will need to regenerate thumbnails if you update the paperclip styles. Use rake paperclip:refresh:thumbnails CLASS=Spree::BannerBox to do this.

@@ -1,0 +1,48 @@
+pt-BR:
+  banners: Banners
+  images_only: "apenas disponíveis os formatos JPG, JPEG, PNG o GIF"
+  banner_settings_updated: "Configurações do Banner atualizadas com sucesso."
+  banner_boxes: Banners
+  banner_box: Banner
+  notice_messages:
+    banner_box_cloned: "Banner foi clonado"
+    banner_box_not_cloned: "Banner não pode ser clonado"
+  activerecord:
+    models:
+      banner_box:
+        one: Banner
+        other: Banners
+    attributes:
+      banner_box:
+        category: Categoria
+        updated_at: Atualizado Em
+        created_at: Criado Em
+        enabled: Habilitado?
+        begin_display: Início da Exibição
+        end_display: Fim da Exibição
+  destroy: Excluir
+  confirm: Confirmar
+  spree:
+    banners: Banners
+    banner_box_settings: Configurações do Banner
+    general_settings: Configurações Principais
+    banner_styles: Estilo do Banner com Paperclip
+    banner_path: Caminho do Banner
+    banner_default_url: URL Padrão do Banner
+    banner_url: URL do Banner
+    banner_default_style: Estilo Padrão do Banner
+    add_new_banner_style: Adicionar Novo Estilo
+    new_banner_style_name: Nome do Estilo
+    new_banner_style_value: Valor
+    banner_settings_updated: Configurações do Banner atualizadas com sucesso
+    listing_banner_boxes: Listando Banners
+    new_banner_box: Novo Banner
+    attachment: Imagem
+    enabled: Habilitado
+    show_only_enabled: Exibir Apenas Habilitados
+    url: URL
+    begin_display: Início da Exibição
+    end_display: Fim da Exibição
+    previous: Anterior
+    next: Próximo
+    banner_box_settings_warning: Você deve gerar novamente as miniatura se você atualizar os estilos do Paperclip. Utilize rake paperclip:refresh:thumbnails CLASS=Spree::BannerBox para fazer isso.

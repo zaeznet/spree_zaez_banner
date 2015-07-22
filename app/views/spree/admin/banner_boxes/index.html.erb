@@ -1,0 +1,80 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_banner_boxes) %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <%= button_link_to Spree.t(:new_banner_box), new_admin_banner_box_path, { :icon => 'add', :class => 'btn-success' } %>
+<% end if can? :create, Spree::BannerBox %>
+
+<div data-hook="admin_banner_index_search" class="well">
+  <fieldset>
+    <legend><%= Spree.t(:search) %></legend>
+    <%= search_form_for @q, :url => admin_banner_boxes_path do |f| %>
+
+        <div class="row no-marginb">
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :category_eq, Spree.t(:category) %>
+              <%= f.select :category_eq, Spree::BannerBox.categories_for_select, {:include_blank => true}, {:class => 'select2'} %>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="form-group">
+              <%= f.label :url_cont, Spree.t(:url) %>
+              <%= f.text_field :url_cont, size: 15, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.check_box :enabled_true %>
+              <%= f.label :enabled_true, Spree.t(:show_only_enabled) %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <div data-hook="admin_banner_box_index_search_buttons">
+            <%= button Spree.t(:filter_results), 'search' %>
+          </div>
+        </div>
+    <% end %>
+  </fieldset>
+</div>
+
+<div id="new_banner_box" data-hook></div>
+
+<% if @collection.any? %>
+    <table class="table" id="listing_banner_boxes">
+      <thead>
+      <tr data-hook="rate_header">
+        <th><%= Spree.t(:thumbnail) %></th>
+        <th><%= Spree.t(:category) %></th>
+        <th><%= Spree.t(:url) %></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody data-hook="admin_banner_boxes_index_rows">
+      <% @collection.each do |banner_box|%>
+          <tr id="<%= spree_dom_id banner_box %>" data-hook="banner_box_row">
+            <td><%= image_tag(banner_box.attachment(:mini)) %></td>
+            <td><%= banner_box.category rescue '' %></td>
+            <td><%= banner_box.url rescue '' %></td>
+            <td class="actions actions-2 text-right">
+              <%= link_to_edit banner_box, no_text: true if can?(:edit, banner_box) %>
+              <%= link_to_with_icon 'clone', Spree.t(:clone), clone_admin_banner_box_url(banner_box),
+                                    no_text: true, class: 'btn btn-primary btn-sm' if can?(:clone, banner_box) %>
+              <%= link_to_delete banner_box, no_text: true if can?(:delete, banner_box) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= t(:no_results) %>
+  </div>
+<% end %>
+
+<%= paginate @collection %>

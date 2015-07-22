@@ -1,0 +1,6 @@
+<!-- insert_before "erb[silent]:contains('if can? :admin, current_store')" -->
+<% if can? :admin, current_store %>
+    <ul class="nav nav-sidebar">
+      <%= main_menu_tree Spree.t(:banners), icon: 'bookmark', sub_menu: 'banner', url: '#sidebar-banner' %>
+    </ul>
+<% end %>
