@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 3.0.0'
-  s.add_dependency 'paperclip'
+  s.add_dependency 'paperclip', '~> 4.2.0'
 
   s.add_development_dependency 'poltergeist', '~> 1.5.0'
   s.add_development_dependency 'capybara', '~> 2.4'
