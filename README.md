@@ -4,6 +4,12 @@ Spree Banner [![Build Status](https://travis-ci.org/zaeznet/spree_zaez_banner.sv
 Adds a way to manage banners to Spree Commerce.
 
 
+Old versions of Spree
+------------
+
+For old version of Spree (before 3-0-stable), go to [old extension](https://github.com/zaeznet/spree_banner) (fork of [Damiano Giacomello](https://github.com/damianogiacomello/spree_banner)).
+
+
 Installation
 ------------
 

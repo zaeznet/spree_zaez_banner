@@ -72,7 +72,7 @@ describe 'Banner Boxes', type: :feature do
       fill_in 'Alternative Text', with: 'Test'
       fill_in 'Begin Display', with: '2015/07/21'
       fill_in 'End Display', with: '2015/07/22'
-      attach_file('Attachment', Spree::Core::Engine.root + 'spec/fixtures' + 'thinking-cat.jpg')
+      attach_file('Attachment', Rails.root + '../../spec/fixtures/spree.jpg')
       click_button 'Create'
 
       banner = Spree::BannerBox.last
