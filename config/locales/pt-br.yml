@@ -46,3 +46,7 @@ pt-BR:
     previous: Anterior
     next: Próximo
     banner_box_settings_warning: Você deve gerar novamente as miniatura se você atualizar os estilos do Paperclip. Utilize rake paperclip:refresh:thumbnails CLASS=Spree::BannerBox para fazer isso.
+    admin:
+      tab:
+        banner_box_settings: Configurações do Banner
+        banner_boxes: Banners
