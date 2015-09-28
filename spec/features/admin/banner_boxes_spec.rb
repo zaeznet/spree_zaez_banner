@@ -12,7 +12,7 @@ describe 'Banner Boxes', type: :feature do
     it 'should show a message if there are not any banners', js: true do
       visit spree.admin_banner_boxes_path
 
-      expect(page).to have_text 'No Results'
+      expect(page).to have_text 'No results'
     end
 
     it 'should show the data of banner boxes', js: true do

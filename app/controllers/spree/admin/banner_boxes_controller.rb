@@ -28,6 +28,7 @@ module Spree
       end
       
       protected
+
       def find_resource
         Spree::BannerBox.find(params[:id])
       end
@@ -48,6 +49,10 @@ module Spree
             page(params[:page]).
             per(params[:per_page] || Spree::Config[:admin_products_per_page])
         @collection
+      end
+
+      def model_class
+        Spree::BannerBox
       end
     end
   end
