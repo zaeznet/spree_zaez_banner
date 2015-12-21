@@ -20,6 +20,10 @@ module Spree
     #     indicadores dos banners habilitados/desabilitados
     #   image_class {default: ''}
     #     classes para serem inseridas na imagem
+    #   order {default: 'position'}
+    #     change ordem to display
+    #   limit
+    #     set quantity limits to be displayed
     #
     def insert_banner_box(params={})
       params[:category] ||= 'home'
@@ -28,8 +32,11 @@ module Spree
       params[:buttons_carousel] ||= true
       params[:buttons_class] ||= 'carousel-control'
       params[:indicators_carousel] ||= true
-
-      @banners = Spree::BannerBox.enabled(params[:category]).order(:position)
+      params[:order] ||= :position
+      
+      @banners = Spree::BannerBox.enabled(params[:category]).order(params[:order])
+      @banners = @banners.limit(params[:limit].to_i) if params[:limit].present? and params[:limit].to_i > 0
+      
       return '' if @banners.empty?
 
       render :partial => 'spree/shared/banner_box', locals: { banners: @banners, params: params }
