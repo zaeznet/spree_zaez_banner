@@ -61,6 +61,8 @@ Banner use example
   buttons_class: 'my_buttons_class'
   indicators_carousel: true|false
   image_class: 'my_image_class'
+  order: 'position'
+  limit: 5
 ```
 
 Copyright (c) 2015 Zaez Inovação Digital, released under the New BSD License
