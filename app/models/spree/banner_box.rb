@@ -1,5 +1,7 @@
 module Spree
   class BannerBox < ActiveRecord::Base
+    
+    acts_as_list
 
     has_attached_file :attachment,
                       styles: Spree::BannerConfig[:banner_styles].symbolize_keys!,

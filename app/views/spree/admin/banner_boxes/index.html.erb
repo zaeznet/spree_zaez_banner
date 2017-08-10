@@ -46,9 +46,10 @@
 <div id="new_banner_box" data-hook></div>
 
 <% if @collection.any? %>
-    <table class="table" id="listing_banner_boxes">
+    <table class="table table sortable" id="listing_banner_boxes" data-sortable-link="<%= update_positions_admin_banner_boxes_path %>">
       <thead>
       <tr data-hook="rate_header">
+        <th></th>
         <th><%= Spree.t(:thumbnail) %></th>
         <th><%= Spree.t(:category) %></th>
         <th><%= Spree.t(:url) %></th>
@@ -58,6 +59,11 @@
       <tbody data-hook="admin_banner_boxes_index_rows">
       <% @collection.each do |banner_box|%>
           <tr id="<%= spree_dom_id banner_box %>" data-hook="banner_box_row">
+            <td class="move-handle">
+              <% if can? :edit, banner_box %>
+                <span class="icon icon-move handle"></span>
+              <% end %>
+            </td>
             <td><%= image_tag(banner_box.attachment(:mini)) %></td>
             <td><%= banner_box.category rescue '' %></td>
             <td><%= banner_box.url rescue '' %></td>
@@ -76,5 +82,3 @@
     <%= Spree.t(:no_results) %>
   </div>
 <% end %>
-
-<%= paginate @collection %>

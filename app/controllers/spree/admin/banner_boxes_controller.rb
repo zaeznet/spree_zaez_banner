@@ -41,13 +41,11 @@ module Spree
         return @collection if @collection.present?
         params[:q] ||= {}
 
-        params[:q][:s] ||= 'category, position asc'
+        params[:q][:s] ||= 'position asc'
         @collection = super
 
         @q = @collection.ransack(params[:q])
-        @collection = @q.result.
-            page(params[:page]).
-            per(params[:per_page] || Spree::Config[:admin_products_per_page])
+        @collection = @q.result
         @collection
       end
 
