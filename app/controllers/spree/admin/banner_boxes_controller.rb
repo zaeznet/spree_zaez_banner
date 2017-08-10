@@ -41,7 +41,7 @@ module Spree
         return @collection if @collection.present?
         params[:q] ||= {}
 
-        params[:q][:s] ||= 'category, position asc'
+        params[:q][:s] ||= 'position asc'
         @collection = super
 
         @q = @collection.ransack(params[:q])
